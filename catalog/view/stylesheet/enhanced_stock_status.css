@@ -1,0 +1,25 @@
+.enhanced-stock-status {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.enhanced-stock-status i {
+    margin-right: 5px;
+}
+
+/* Journal3 product thumb specific styles */
+.product-layout .product-thumb .enhanced-stock-status {
+    justify-content: center;
+    margin: 3px auto 8px;
+    font-size: 12px;
+}
+
+/* Product page specific styles */
+.product-info .enhanced-stock-status {
+    justify-content: flex-start;
+    margin: 10px 0;
+    font-size: 14px;
+}
