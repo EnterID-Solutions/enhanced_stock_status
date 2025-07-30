@@ -1,8 +1,0 @@
-{% if product.enhanced_stock_status and module_enhanced_stock_status_show_in_thumb %}
-<div class="enhanced-stock-status"{% if product.enhanced_stock_status.color %} style="color: {{ product.enhanced_stock_status.color }};"{% endif %}>
-    {% if product.enhanced_stock_status.icon %}
-    <i class="fa {{ product.enhanced_stock_status.icon }}"></i>
-    {% endif %}
-    <span {% if product.enhanced_stock_status.color %} style="color: {{ product.enhanced_stock_status.color }};"{% endif %}>{{ product.enhanced_stock_status.name }}</span>
-</div>
-{% endif %}
