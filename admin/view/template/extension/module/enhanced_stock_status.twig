@@ -1,0 +1,96 @@
+{# Enhanced Stock Status Admin Template for OpenCart 3 #}
+{{ header }}
+{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="module_enhanced_stock_status_status" id="input-status" class="form-control">
+                <option value="1" {% if module_enhanced_stock_status_status %}selected{% endif %}>{{ text_enabled }}</option>
+                <option value="0" {% if not module_enhanced_stock_status_status %}selected{% endif %}>{{ text_disabled }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="input-show-in-thumb">{{ entry_show_in_thumb }}</label>
+            <div class="col-sm-10">
+              <input type="checkbox" name="module_enhanced_stock_status_show_in_thumb" value="1" id="input-show-in-thumb" {% if module_enhanced_stock_status_show_in_thumb %}checked{% endif %} />
+              <div class="form-text">{{ help_show_in_thumb }}</div>
+            </div>
+          </div>
+          <fieldset>
+            <legend>{{ entry_available_settings }}</legend>
+            <div class="mb-3 row">
+              <label class="col-sm-2 col-form-label">{{ entry_available_text }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="module_enhanced_stock_status_available" value="{{ module_enhanced_stock_status_available is defined ? module_enhanced_stock_status_available : text_available_default }}" class="form-control" />
+                <div class="form-text">{{ help_available_text }}</div>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-2 col-form-label">{{ entry_color }}</label>
+              <div class="col-sm-10">
+                <input type="color" name="module_enhanced_stock_status_available_color" value="{{ module_enhanced_stock_status_available_color is defined ? module_enhanced_stock_status_available_color : '#28a745' }}" class="form-control" />
+                <div class="form-text">{{ help_color }}</div>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-2 col-form-label">{{ entry_icon }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="module_enhanced_stock_status_available_icon" value="{{ module_enhanced_stock_status_available_icon is defined ? module_enhanced_stock_status_available_icon : 'fa-check-circle' }}" class="form-control" />
+                <div class="form-text">{{ help_icon }}</div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>{{ entry_stock_status }}</th>
+                  <th>{{ entry_color }}</th>
+                  <th>{{ entry_icon }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for status in stock_statuses %}
+                <tr>
+                  <td>{{ status.name }}</td>
+                  <td><input type="color" name="enhanced_status[{{ status.stock_status_id }}][color]" value="{{ enhanced_statuses[status.stock_status_id].color is defined ? enhanced_statuses[status.stock_status_id].color : '' }}" class="form-control" /></td>
+                  <td><input type="text" name="enhanced_status[{{ status.stock_status_id }}][icon]" value="{{ enhanced_statuses[status.stock_status_id].icon is defined ? enhanced_statuses[status.stock_status_id].icon : '' }}" class="form-control" /></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}

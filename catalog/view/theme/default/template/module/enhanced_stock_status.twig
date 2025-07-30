@@ -1,0 +1,6 @@
+<div class="enhanced-stock-status"{% if enhanced_stock_status.color %} style="color: {{ enhanced_stock_status.color }};"{% endif %}>
+    {% if enhanced_stock_status.icon %}
+    <i class="fa {{ enhanced_stock_status.icon }}"></i>
+    {% endif %}
+    <span {% if enhanced_stock_status.color %} style="color: {{ enhanced_stock_status.color }};"{% endif %}>{{ enhanced_stock_status.name }}</span>
+</div>

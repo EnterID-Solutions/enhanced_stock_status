@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Modification Default</name>
+    <version>1.0</version>
+    <author>OpenCart Ltd</author>
+    <link>http://www.opencart.com</link>
+    <file path="catalog/model/catalog/product.php--">
+        <operation>
+            <search><![CDATA[
+            'stock_status'     => $query->row['stock_status'],
+            ]]></search>
+            <add position="after"><![CDATA[
+            'stock_status_id'     => $query->row['stock_status_id'],            
+            ]]></add>
+        </operation>
+    </file>  
+    <file path="catalog/model/journal3/product.php--">
+        <operation>
+            <search><![CDATA[
+            'stock_status'     => $row['stock_status'],
+            ]]></search>
+            <add position="after"><![CDATA[
+            'stock_status_id'     => $row['stock_status_id'],
+            ]]></add>
+        </operation>
+    </file>  
+</modification>
