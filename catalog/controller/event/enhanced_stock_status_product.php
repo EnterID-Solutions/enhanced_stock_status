@@ -3,8 +3,9 @@ class ControllerEventEnhancedStockStatusProduct extends Controller {
 
     const DEBUG_MODE = true; // Set to false in production
     public function enhanceProductPage(&$route, &$data, &$output) {
-        // Only run if module is enabled
-        if (!$this->config->get('module_enhanced_stock_status_status')) {
+        // Only run if module is enabled and showing on product page
+        if (!$this->config->get('module_enhanced_stock_status_status') ||
+            !$this->config->get('module_enhanced_stock_status_show_in_product_page')) {
             return;
         }
 

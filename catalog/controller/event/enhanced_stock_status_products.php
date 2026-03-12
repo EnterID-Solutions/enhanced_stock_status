@@ -4,9 +4,10 @@ class ControllerEventEnhancedStockStatusProducts extends Controller {
     const DEBUG_MODE = true; // Set to false in production
     public function afterProductsView(&$route, &$data, &$output) {
         // Only run if module is enabled
-        if (!$this->config->get('module_enhanced_stock_status_status')) {
+        if (!$this->config->get('module_enhanced_stock_status_status') || !$this->config->get('module_enhanced_stock_status_show_in_thumb')) {
             return;
         }
+        
         if (empty($data['product']) || !is_array($data['product'])) {
             return;
         }

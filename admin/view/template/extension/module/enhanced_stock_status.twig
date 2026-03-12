@@ -37,13 +37,23 @@
               </select>
             </div>
           </div>
+          <fieldset>
+            <legend>{{ entry_display_settings }}</legend>
           <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="input-show-in-thumb">{{ entry_show_in_thumb }}</label>
             <div class="col-sm-10">
               <input type="checkbox" name="module_enhanced_stock_status_show_in_thumb" value="1" id="input-show-in-thumb" {% if module_enhanced_stock_status_show_in_thumb %}checked{% endif %} />
-              <div class="form-text">{{ help_show_in_thumb }}</div>
+              <span class="form-text">{{ help_show_in_thumb }}</span>
             </div>
           </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="input-show-in-product-page">{{ entry_show_in_product_page }}</label>
+            <div class="col-sm-10">
+              <input type="checkbox" name="module_enhanced_stock_status_show_in_product_page" value="1" id="input-show-in-product-page" {% if module_enhanced_stock_status_show_in_product_page %}checked{% endif %} />
+              <span class="form-text">{{ help_show_in_product_page }}</span>
+            </div>
+          </div>
+          </fieldset>
           <fieldset>
             <legend>{{ entry_available_settings }}</legend>
             <div class="mb-3 row">

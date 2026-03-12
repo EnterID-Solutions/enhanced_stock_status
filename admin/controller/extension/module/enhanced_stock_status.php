@@ -64,10 +64,17 @@ class ControllerExtensionModuleEnhancedStockStatus extends Controller {
         } else {
             $data['module_enhanced_stock_status_status'] = $this->config->get('module_enhanced_stock_status_status');
         }
+        
         if (isset($this->request->post['module_enhanced_stock_status_show_in_thumb'])) {
             $data['module_enhanced_stock_status_show_in_thumb'] = $this->request->post['module_enhanced_stock_status_show_in_thumb'];
         } else {
             $data['module_enhanced_stock_status_show_in_thumb'] = $this->config->get('module_enhanced_stock_status_show_in_thumb');
+        }
+
+        if (isset($this->request->post['module_enhanced_stock_status_show_in_product_page'])) {
+            $data['module_enhanced_stock_status_show_in_product_page'] = $this->request->post['module_enhanced_stock_status_show_in_product_page'];
+        } else {
+            $data['module_enhanced_stock_status_show_in_product_page'] = $this->config->get('module_enhanced_stock_status_show_in_product_page');
         }
 
         // Load available text, color, icon

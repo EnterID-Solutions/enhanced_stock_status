@@ -16,11 +16,13 @@ $_['entry_stock_status'] = 'Stock Status';
 $_['entry_show_in_thumb'] = 'Show in Product Thumbnails';
 $_['entry_available_settings'] = 'Available Product Settings';
 $_['entry_available_text'] = 'Text for Available Products';
-
+$_['entry_show_in_product_page'] = 'Show in Product Page';
+$_['entry_display_settings'] = 'Display Settings';
 // Help
 $_['help_color']       = 'Color code (e.g. #FF0000 for red)';
 $_['help_icon']        = 'FontAwesome icon code (e.g. fa-check, fa-times)';
 $_['help_show_in_thumb'] = 'Display stock status in product thumbnails on category/search pages';
+$_['help_show_in_product_page'] = 'Display stock status on the product page';
 $_['help_available_text'] = 'This text will be shown for products that are in stock';
 
 // Error
