@@ -37,13 +37,13 @@ class EnhancedStockStatusHandler {
             'is_available' => ($quantity > 0)
         ];
         
-        // if ($quantity > 0) {
-        //     // For available products, use the configured settings
-        //     $result['name'] = $this->available_settings['text_' . $this->language_id] ?? 'Available';
-        //     $result['color'] = $this->available_settings['color'] ?? '';
-        //     $result['icon'] = $this->available_settings['icon'] ?? '';
-        //     return $result;
-        // }
+        if ($quantity > 0) {
+            // For available products, use the configured settings
+            $result['name'] = $this->available_settings['text_' . $this->language_id] ?? 'Available';
+            $result['color'] = $this->available_settings['color'] ?? '';
+            $result['icon'] = $this->available_settings['icon'] ?? '';
+            return $result;
+        }
         
         // For out-of-stock products, get enhanced data
         $setting_key = 'module_enhanced_stock_status_' . $stock_status_id;
